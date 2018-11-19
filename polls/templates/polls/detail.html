@@ -1,0 +1,39 @@
+{{  question  }}
+<br>
+<hr>
+<form action="/polls/{{ num }}/vote" method="post">
+
+    <input type="submit">
+    <!--서브밋 버튼 서버로 데이터 전송-->
+    {% csrf_token %}
+    <!--서버와의 데이터 통신,토큰(보안키)-->
+    <ul>
+    {% for c in choice  %}
+        <li>
+
+            <input type = "radio" name = "select"
+            value = "{{c.id}}">
+            {{c.choice_text}}
+
+        </li>
+    {%endfor%}
+    </ul>
+</form>
+<!--{{ question }}-->
+<!--<br>-->
+<!--<hr>-->
+<!--<form action="/polls/1/vote" method="post">-->
+    <!--<input type="submit"> &lt;!&ndash; submit 버튼 / 서버로 데이터를 전송 &ndash;&gt;-->
+    <!--&lt;!&ndash; 서버와의 통신에 필요한 보안키(토큰)&ndash;&gt;-->
+    <!--{% csrf_token %}-->
+
+<!--<ul>-->
+    <!--{% for c in choice %}-->
+    <!--<li>-->
+        <!--<input type="radio" name="select"-->
+               <!--value="{{ c.choice_text }}">-->
+        <!--{{ c.choice_text }}-->
+    <!--</li>-->
+<!--{% endfor %}-->
+<!--</ul>-->
+<!--</form>-->
